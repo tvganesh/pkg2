@@ -1,0 +1,48 @@
+---
+title: "The making of cricket package yorkr-Part 1"
+author: "Tinniam V Ganesh"
+date: "March 5, 2016"
+output: html_document
+---
+# Introduction
+Here is a preview of my latest package cricket pacakge **yorkr** in R. My earlier package 'cricketr' (see [Introducing cricketr: An R package for analyzing performances of cricketers](https://gigadom.wordpress.com/2015/07/04/introducing-cricketr-a-r-package-to-analyze-performances-of-cricketers/)) was based on data from ESPN Cricinfo Statsguru. My current package 'york' is based on the data from [Cricsheet](http://cricsheet.org/). The data available in Cricsheet is in the yaml form. While the statisitics available in ESPN Cricinf is in the form of overall summary of batting and bowling performances per match, Cricsheet is more detailed and granular. Cricsheet gives ball by ball detail for each match as can be seen from the above website. Hence the type of analyses possible are much larger and richer. 
+
+This current post includes my first stab at analysing ODI data from Cricsheet. To do this I had to parse the Yaml files and flatten them out as data frames. That was a fairly involved task and  I think I now have done it. I then perform analyses on these flattened 1000's of data frames. This post contains my initial analyses of the ODI data from Cricsheet.
+
+Since the package 'yorkr' is still work in progress. I will be making the code available in about 6- 10 weeks time when I hope to finish with this package. Hold your horses and please be patient till this time.
+
+The current set of functions developed fall into 4 main categories
+* batsmen performance in match
+* bowlers performance in match
+* batsmen performance against opposition
+* bowlers performance against opposition
+
+So without much ado let me dive into the functions created
+
+```{r}
+library(dplyr)
+library(ggplot2)
+setwd("C:/software/cricket-package/cricsheet/yorkr1")
+getwd()
+ls()
+match <- getMatchDetails()
+```
+
+
+```{r battingDetails,cache=TRUE}
+#teamBattingDetails(match,"India")
+#teamBattingDetails(match,"Australia")
+```
+
+```{r partnershipmatch,cache=TRUE}
+#batsmanPartnershipMatch(match,"India")
+#SbatsmanPartnershipMatch(match,"Australia")
+```
+
+
+```{r batsmanvsBowlers,cache=TRUE}
+#batsmanVsBowlersMatch(match,"India")
+#batsmanVsBowlersMatch(match,"Australia")
+```
+
+
